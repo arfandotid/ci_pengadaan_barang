@@ -42,8 +42,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex text-white align-items-center bg-primary justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-university"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Pengadaan Barang</div>
             </a>
@@ -75,7 +75,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseMaster" aria-expanded="true" aria-controls="collapseMaster">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-folder"></i>
                     <span>Barang</span>
                 </a>
                 <div id="collapseMaster" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -99,7 +99,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('barangmasuk'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-fw fa-download"></i>
                     <span>Barang Masuk</span>
                 </a>
             </li>
@@ -107,7 +107,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('barangkeluar'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-fw fa-upload"></i>
                     <span>Barang Keluar</span>
                 </a>
             </li>
@@ -139,7 +139,7 @@
                 <!-- Nav Item -->
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('user'); ?>">
-                        <i class="fas fa-fw fa-user"></i>
+                        <i class="fas fa-fw fa-user-plus"></i>
                         <span>User Management</span>
                     </a>
                 </li>
