@@ -32,8 +32,8 @@
                 </div>
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="tanggal_keluar">Tanggal Keluar</label>
-                    <div class="col-md-3">
-                        <input value="<?= set_value('tanggal_keluar', date('Y-m-d')); ?>" name="tanggal_keluar" id="tanggal_keluar" type="text" class="form-control" placeholder="Tanggal Masuk...">
+                    <div class="col-md-4">
+                        <input value="<?= set_value('tanggal_keluar', date('Y-m-d')); ?>" name="tanggal_keluar" id="tanggal_keluar" type="text" class="form-control date" placeholder="Tanggal Masuk...">
                         <?= form_error('tanggal_keluar', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>

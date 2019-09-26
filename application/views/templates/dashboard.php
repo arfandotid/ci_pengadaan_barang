@@ -23,6 +23,7 @@
     <link href="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/vendor/datatables/buttons/css/buttons.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/vendor/datatables/responsive/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/vendor/gijgo/css/gijgo.min.css" rel="stylesheet">
 
     <style>
         #accordionSidebar,
@@ -290,8 +291,15 @@
     <script src="<?= base_url(); ?>assets/vendor/datatables/responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/datatables/responsive/js/responsive.bootstrap4.min.js"></script>
 
+    <script src="<?= base_url(); ?>assets/vendor/gijgo/js/gijgo.min.js"></script>
+
     <script type="text/javascript">
         $(function() {
+            $('.date').datepicker({
+                uiLibrary: 'bootstrap4',
+                format: 'yyyy-mm-dd'
+            });
+
             var start = moment().subtract(29, 'days');
             var end = moment();
 
@@ -348,7 +356,7 @@
         $(document).on('change', '#barang_id', function() {
             let url = '<?= base_url('barang/getstok/'); ?>' + this.value;
             $.getJSON(url, function(data) {
-                satuan.text(data.nama_satuan);
+                satuan.html(data.nama_satuan);
                 stok.val(data.stok);
                 total.val(data.stok);
                 jumlah.focus();

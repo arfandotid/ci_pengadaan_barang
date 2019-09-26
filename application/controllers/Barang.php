@@ -96,7 +96,7 @@ class Barang extends CI_Controller
     public function getstok($getId)
     {
         $id = encode_php_tags($getId);
-        $query = $this->admin->getBarangKeluar(null, $id)[0];
+        $query = $this->admin->cekStok($id);
         output_json($query);
     }
 }

@@ -92,9 +92,12 @@ class Admin_model extends CI_Model
         return $this->db->get('barang_keluar bk')->result_array();
     }
 
-    public function getMax($table, $field)
+    public function getMax($table, $field, $kode = null)
     {
         $this->db->select_max($field);
+        if ($kode != null) {
+            $this->db->like($field, $kode, 'after');
+        }
         return $this->db->get($table)->row_array()[$field];
     }
 
@@ -136,5 +139,11 @@ class Admin_model extends CI_Model
         $this->db->where($tgl . ' >=', $mulai);
         $this->db->where($tgl . ' <=', $akhir);
         return $this->db->get($table)->result_array();
+    }
+
+    public function cekStok($id)
+    {
+        $this->db->join('satuan s', 'b.satuan_id=s.id_satuan');
+        return $this->db->get_where('barang b', ['id_barang' => $id])->row_array();
     }
 }

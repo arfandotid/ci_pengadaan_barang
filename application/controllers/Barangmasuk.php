@@ -36,11 +36,12 @@ class Barangmasuk extends CI_Controller
             $data['barang'] = $this->admin->get('barang');
 
             // Mendapatkan dan men-generate kode transaksi barang masuk
-            $kode_terakhir = $this->admin->getMax('barang_masuk', 'id_barang_masuk');
+            $kode = 'T-BM-' . date('ymd');
+            $kode_terakhir = $this->admin->getMax('barang_masuk', 'id_barang_masuk', $kode);
             $kode_tambah = substr($kode_terakhir, -5, 5);
             $kode_tambah++;
             $number = str_pad($kode_tambah, 5, '0', STR_PAD_LEFT);
-            $data['id_barang_masuk'] = 'T-BM-' . date('ymd') . $number;
+            $data['id_barang_masuk'] = $kode . $number;
 
             $this->template->load('templates/dashboard', 'barang_masuk/add', $data);
         } else {
