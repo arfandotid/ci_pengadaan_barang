@@ -26,8 +26,16 @@ class Barangkeluar extends CI_Controller
 
         $input = $this->input->post('barang_id', true);
         $stok = $this->admin->get('barang', ['id_barang' => $input])['stok'];
+        $stok_valid = $stok + 1;
 
-        $this->form_validation->set_rules('jumlah_keluar', 'Jumlah Keluar', "required|trim|numeric|greater_than[0]|less_than[{$stok}]");
+        $this->form_validation->set_rules(
+            'jumlah_keluar',
+            'Jumlah Keluar',
+            "required|trim|numeric|greater_than[0]|less_than[{$stok_valid}]",
+            [
+                'less_than' => "Jumlah Keluar tidak boleh lebih dari {$stok}"
+            ]
+        );
     }
 
     public function add()
@@ -35,7 +43,7 @@ class Barangkeluar extends CI_Controller
         $this->_validasi();
         if ($this->form_validation->run() == false) {
             $data['title'] = "Barang Keluar";
-            $data['barang'] = $this->admin->get('barang');
+            $data['barang'] = $this->admin->get('barang', null, ['stok >' => 0]);
 
             // Mendapatkan dan men-generate kode transaksi barang keluar
             $kode = 'T-BK-' . date('ymd');
